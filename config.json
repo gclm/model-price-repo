@@ -1,25 +1,21 @@
 {
-  "upstream_url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
+  "upstream_url": "https://models.dev/api.json",
   "output_file": "model_prices_and_context_window.json",
   "hash_file": "model_prices_and_context_window.sha256",
-  "sync_mode": "additive",
+  "sync_mode": "full",
   "update_existing": false,
-  "prefix_rules": {
-    "claude-":  "keep",
-    "gpt-":     "keep",
-    "gemini-":  "keep",
-    "o1-":      "keep",
-    "o3-":      "keep",
-    "o3":       "keep",
-    "o4-":      "keep",
-    "deepseek-":"keep",
-    "minimax/": "both",
-    "zai/":     "strip",
-    "moonshot/":"strip"
+  "provider_filter": {
+    "openai": {"litellm_provider": "openai"},
+    "anthropic": {"litellm_provider": "anthropic"},
+    "google": {"litellm_provider": "google"},
+    "deepseek": {"litellm_provider": "deepseek"},
+    "xai": {"litellm_provider": "xai"},
+    "alibaba": {"litellm_provider": "alibaba"},
+    "zhipuai": {"litellm_provider": "zhipuai"},
+    "minimax": {"litellm_provider": "minimax", "key_prefix": "minimax/", "action": "both"},
+    "moonshotai": {"litellm_provider": "moonshot"},
+    "v0": {"litellm_provider": "v0"}
   },
-  "exclude_patterns": [
-    "sample_spec"
-  ],
   "aliases": {
     "claude-opus-4-6-thinking": {
       "source": "claude-opus-4-6",

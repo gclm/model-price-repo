@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Sync model pricing from upstream litellm, applying prefix filters,
-aliases, and custom model definitions.
+"""Sync model pricing from models.dev upstream, flattening to litellm-compatible
+format with aliases and custom model definitions.
 
 Usage:
     python3 scripts/sync_prices.py --config config.json --repo-root .
@@ -33,7 +33,7 @@ REQUIRED_CONFIG_KEYS = [
     "output_file",
     "hash_file",
     "sync_mode",
-    "prefix_rules",
+    "provider_filter",
 ]
 
 
@@ -111,42 +111,88 @@ def fetch_upstream(url: str) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def filter_upstream(data: dict, config: dict) -> dict:
-    """Apply prefix_rules and exclude_patterns to upstream data.
+def flatten_models_dev(data: dict, provider_filter: dict) -> dict:
+    """Flatten models.dev nested {provider: {models: {...}}} into flat
+    {model_key: litellm_compatible_pricing} dict, applying provider_filter config."""
+    result = {}
 
-    prefix_rules values:
-      - "keep":  retain original key as-is
-      - "strip": remove the matched prefix from the key
-      - "both":  keep both original and stripped key
+    for provider_id, provider_cfg in provider_filter.items():
+        if not isinstance(provider_cfg, dict):
+            provider_cfg = {}
+
+        litellm_provider = provider_cfg.get("litellm_provider", provider_id)
+        key_prefix = provider_cfg.get("key_prefix", "")
+        action = provider_cfg.get("action", "keep")
+
+        provider_data = data.get(provider_id)
+        if not provider_data or "models" not in provider_data:
+            log.warning("Provider '%s' not found in upstream or has no models.", provider_id)
+            continue
+
+        models = provider_data["models"]
+        for model_id, model_data in models.items():
+            mapped = map_model_to_litellm(model_data, litellm_provider)
+
+            if action == "both":
+                result[model_id] = mapped
+                result[key_prefix + model_id] = copy.deepcopy(mapped)
+            elif key_prefix:
+                result[key_prefix + model_id] = mapped
+            else:
+                result[model_id] = mapped
+
+    log.info("Flattened to %d models from %d providers.", len(result), len(provider_filter))
+    return result
+
+
+def map_model_to_litellm(model: dict, litellm_provider: str) -> dict:
+    """Convert a models.dev model entry to litellm-compatible pricing format.
+
+    Cost is converted from per-million-tokens to per-token.
     """
-    rules: dict[str, str] = config.get("prefix_rules", {})
-    prefixes = tuple(rules.keys())
-    excludes = config.get("exclude_patterns", [])
+    cost = model.get("cost", {})
+    limit = model.get("limit", {})
+    modalities = model.get("modalities", {})
+    input_mods = modalities.get("input", [])
 
-    filtered = {}
-    for key, value in data.items():
-        if any(pat in key for pat in excludes):
-            continue
+    result = {
+        "mode": "chat",
+        "litellm_provider": litellm_provider,
+    }
 
-        matched_prefix = next((p for p in prefixes if key.startswith(p)), None)
-        if not matched_prefix:
-            continue
+    # Cost: per-million → per-token (using Decimal to avoid float noise)
+    if cost.get("input") is not None:
+        result["input_cost_per_token"] = float(Decimal(str(cost["input"])) / Decimal("1000000"))
+    if cost.get("output") is not None:
+        result["output_cost_per_token"] = float(Decimal(str(cost["output"])) / Decimal("1000000"))
+    if cost.get("cache_read") is not None:
+        result["cache_read_input_token_cost"] = float(Decimal(str(cost["cache_read"])) / Decimal("1000000"))
+    if cost.get("cache_write") is not None:
+        result["cache_creation_input_token_cost"] = float(Decimal(str(cost["cache_write"])) / Decimal("1000000"))
 
-        action = rules[matched_prefix]
-        stripped_key = key[len(matched_prefix):]
+    # Limits
+    if "context" in limit:
+        result["max_input_tokens"] = limit["context"]
+    if "output" in limit:
+        result["max_output_tokens"] = limit["output"]
+        result["max_tokens"] = limit["output"]
 
-        if action == "keep":
-            filtered[key] = value
-        elif action == "strip":
-            filtered[stripped_key] = value
-        elif action == "both":
-            filtered[key] = value
-            filtered[stripped_key] = value
-        else:
-            log.warning("Unknown prefix_rules action '%s' for prefix '%s'; skipping.", action, matched_prefix)
+    # Features
+    if model.get("tool_call"):
+        result["supports_function_calling"] = True
+        result["supports_tool_choice"] = True
+    if model.get("reasoning"):
+        result["supports_reasoning"] = True
+    if "image" in input_mods:
+        result["supports_vision"] = True
+    if "pdf" in input_mods:
+        result["supports_pdf_input"] = True
+    if cost.get("cache_read") is not None:
+        result["supports_prompt_caching"] = True
+    if model.get("temperature", True):
+        result["supports_system_messages"] = True
 
-    log.info("Filtered to %d models (from %d upstream).", len(filtered), len(data))
-    return filtered
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -325,8 +371,8 @@ def main() -> None:
     # 3. Fetch upstream
     upstream = fetch_upstream(config["upstream_url"])
 
-    # 4. Filter
-    filtered = filter_upstream(upstream, config)
+    # 4. Flatten & filter
+    filtered = flatten_models_dev(upstream, config.get("provider_filter", {}))
 
     # 5. Merge
     merged, stats = merge_models(
