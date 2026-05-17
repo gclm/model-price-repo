@@ -11,9 +11,11 @@
     "deepseek": {"litellm_provider": "deepseek"},
     "xai": {"litellm_provider": "xai"},
     "alibaba": {"litellm_provider": "alibaba"},
-    "zhipuai": {"litellm_provider": "zhipuai"},
+    "zai": {"litellm_provider": "zhipuai"},
     "minimax": {"litellm_provider": "minimax", "key_prefix": "minimax/", "action": "both"},
     "moonshotai": {"litellm_provider": "moonshot"},
+    "xiaomi": {"litellm_provider": "xiaomi"},
+    "stepfun": {"litellm_provider": "stepfun"},
     "v0": {"litellm_provider": "v0"}
   },
   "aliases": {
