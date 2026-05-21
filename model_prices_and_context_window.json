@@ -1865,6 +1865,7 @@
     "max_output_tokens": 0,
     "max_tokens": 0,
     "mode": "chat",
+    "supports_pdf_input": true,
     "supports_vision": true
   },
   "grok-imagine-image-quality": {
@@ -1873,6 +1874,7 @@
     "max_output_tokens": 0,
     "max_tokens": 0,
     "mode": "chat",
+    "supports_pdf_input": true,
     "supports_vision": true
   },
   "grok-imagine-video": {
@@ -1881,6 +1883,7 @@
     "max_output_tokens": 0,
     "max_tokens": 0,
     "mode": "chat",
+    "supports_pdf_input": true,
     "supports_vision": true
   },
   "kimi-k2-0711-preview": {
