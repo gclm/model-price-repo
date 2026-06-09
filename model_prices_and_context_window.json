@@ -2133,6 +2133,21 @@
     "supports_system_messages": true,
     "supports_tool_choice": true
   },
+  "mimo-v2.5-pro-ultraspeed": {
+    "cache_read_input_token_cost": 1.08e-08,
+    "input_cost_per_token": 1.305e-06,
+    "litellm_provider": "xiaomi",
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 131072,
+    "max_tokens": 131072,
+    "mode": "chat",
+    "output_cost_per_token": 2.61e-06,
+    "supports_function_calling": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true
+  },
   "minimax/MiniMax-M2": {
     "input_cost_per_token": 3e-07,
     "litellm_provider": "minimax",
