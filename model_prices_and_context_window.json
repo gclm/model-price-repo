@@ -1062,30 +1062,6 @@
     "supports_tool_choice": true,
     "supports_vision": true
   },
-  "gemma-4-E2B-it": {
-    "litellm_provider": "google",
-    "max_input_tokens": 131072,
-    "max_output_tokens": 8192,
-    "max_tokens": 8192,
-    "mode": "chat",
-    "supports_function_calling": true,
-    "supports_reasoning": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true
-  },
-  "gemma-4-E4B-it": {
-    "litellm_provider": "google",
-    "max_input_tokens": 131072,
-    "max_output_tokens": 8192,
-    "max_tokens": 8192,
-    "mode": "chat",
-    "supports_function_calling": true,
-    "supports_reasoning": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true
-  },
   "glm-4.5": {
     "cache_creation_input_token_cost": 0.0,
     "cache_read_input_token_cost": 1.1e-07,
