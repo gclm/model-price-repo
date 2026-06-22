@@ -1250,6 +1250,22 @@
     "supports_system_messages": true,
     "supports_tool_choice": true
   },
+  "glm-5.2": {
+    "cache_creation_input_token_cost": 0.0,
+    "cache_read_input_token_cost": 2.6e-07,
+    "input_cost_per_token": 1.4e-06,
+    "litellm_provider": "zhipuai",
+    "max_input_tokens": 1000000,
+    "max_output_tokens": 131072,
+    "max_tokens": 131072,
+    "mode": "chat",
+    "output_cost_per_token": 4.4e-06,
+    "supports_function_calling": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true
+  },
   "glm-5v-turbo": {
     "cache_creation_input_token_cost": 0.0,
     "cache_read_input_token_cost": 2.4e-07,
