@@ -835,6 +835,18 @@
     "supports_tool_choice": true,
     "supports_vision": true
   },
+  "gemini-omni-flash-preview": {
+    "input_cost_per_token": 1.5e-06,
+    "litellm_provider": "google",
+    "max_input_tokens": 131072,
+    "max_output_tokens": 65536,
+    "max_tokens": 65536,
+    "mode": "chat",
+    "output_cost_per_token": 1.75e-05,
+    "supports_reasoning": true,
+    "supports_system_messages": true,
+    "supports_vision": true
+  },
   "gemma-4-26b-a4b-it": {
     "litellm_provider": "google",
     "max_input_tokens": 262144,
@@ -1743,6 +1755,7 @@
     "mode": "chat",
     "output_cost_per_token": 6e-06,
     "supports_function_calling": true,
+    "supports_pdf_input": true,
     "supports_prompt_caching": true,
     "supports_reasoning": true,
     "supports_system_messages": true,
