@@ -1,0 +1,385 @@
+# Instincts generated from https://github.com/gclm/model-price-repo
+# Generated: 2026-06-06T22:14:14.531Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: model-price-repo-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Commit Length
+
+## Action
+
+Keep commit messages concise (~35 characters)
+
+## Evidence
+
+- Average commit message length: 35 chars
+- Based on 6 commits
+
+---
+id: model-price-repo-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: model-price-repo-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: model-price-repo-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: model-price-repo-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: model-price-repo-workflow-sync-model-pricing
+trigger: "when doing sync model pricing"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Workflow Sync Model Pricing
+
+## Action
+
+Follow the sync-model-pricing workflow:
+1. Fetch or generate the latest model pricing data.
+2. Update model_prices_and_context_window.json with new data.
+3. Update model_prices_and_context_window.sha256 to match the new JSON file.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: model_prices_and_context_window.json, model_prices_and_context_window.sha256
+
+---
+id: model-price-repo-workflow-add-or-update-model-pricing
+trigger: "when doing add or update model pricing"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/gclm/model-price-repo
+---
+
+# Model Price Repo Workflow Add Or Update Model Pricing
+
+## Action
+
+Follow the add-or-update-model-pricing workflow:
+1. Edit config.json to add or update model configuration.
+2. Update model_prices_and_context_window.json with new or changed model pricing.
+3. Update model_prices_and_context_window.sha256 to reflect changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: config.json, model_prices_and_context_window.json, model_prices_and_context_window.sha256
+
+---
+id: model-price-repo-instinct-file-naming
+trigger: "When creating or renaming a file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in namingConventions.files: snake_case
+
+---
+id: model-price-repo-instinct-function-naming
+trigger: "When defining a function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: model-price-repo-instinct-class-naming
+trigger: "When defining a class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: model-price-repo-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: model-price-repo-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: model-price-repo-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: model-price-repo-instinct-test-location
+trigger: "When adding or updating tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Test Location
+
+## Action
+
+Place test files in a separate directory from source code
+
+## Evidence
+
+- Pattern in architecture.testLocation: separate
+
+---
+id: model-price-repo-instinct-git-commit-prefix-chore
+trigger: "When making a commit that syncs or updates model pricing data"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Git Commit Prefix Chore
+
+## Action
+
+Prefix the commit message with 'chore:'
+
+## Evidence
+
+- Seen in commits: 'chore: sync model pricing (ea787611)'
+- Pattern in commit prefixes: chore
+
+---
+id: model-price-repo-instinct-git-commit-prefix-feat
+trigger: "When making a commit that adds a new model or feature"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Git Commit Prefix Feat
+
+## Action
+
+Prefix the commit message with 'feat:'
+
+## Evidence
+
+- Seen in commits: 'feat:opus-4.8'
+
+---
+id: model-price-repo-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise (around 35 characters)
+
+## Evidence
+
+- Pattern in average commit length: 35
+
+---
+id: model-price-repo-instinct-workflow-sync-model-pricing
+trigger: "When someone wants to update the model pricing data to the latest version"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Workflow Sync Model Pricing
+
+## Action
+
+Run the sync-model-pricing workflow: fetch/generate latest data, update model_prices_and_context_window.json, update model_prices_and_context_window.sha256
+
+## Evidence
+
+- Workflow: sync-model-pricing
+- Files involved: model_prices_and_context_window.json, model_prices_and_context_window.sha256
+
+---
+id: model-price-repo-instinct-workflow-add-or-update-model-pricing
+trigger: "When someone wants to introduce pricing for new models or update pricing/configuration for existing models"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: gclm/model-price-repo
+---
+
+# Model Price Repo Instinct Workflow Add Or Update Model Pricing
+
+## Action
+
+Run the add-or-update-model-pricing workflow: edit config.json, update model_prices_and_context_window.json, update model_prices_and_context_window.sha256
+
+## Evidence
+
+- Workflow: add-or-update-model-pricing
+- Files involved: config.json, model_prices_and_context_window.json, model_prices_and_context_window.sha256
+
