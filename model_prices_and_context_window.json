@@ -1829,7 +1829,7 @@
     "supports_vision": true
   },
   "grok-4.5": {
-    "cache_read_input_token_cost": 5e-07,
+    "cache_read_input_token_cost": 3e-07,
     "input_cost_per_token": 2e-06,
     "litellm_provider": "xai",
     "max_input_tokens": 500000,
