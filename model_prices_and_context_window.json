@@ -1919,6 +1919,15 @@
     "supports_pdf_input": true,
     "supports_vision": true
   },
+  "grok-imagine-image-2.0": {
+    "litellm_provider": "xai",
+    "max_input_tokens": 8000,
+    "max_output_tokens": 0,
+    "max_tokens": 0,
+    "mode": "chat",
+    "supports_pdf_input": true,
+    "supports_vision": true
+  },
   "grok-imagine-image-quality": {
     "litellm_provider": "xai",
     "max_input_tokens": 8000,
