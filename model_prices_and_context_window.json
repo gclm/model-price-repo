@@ -1790,6 +1790,23 @@
     "supports_tool_choice": true,
     "supports_vision": true
   },
+  "gpt-6-astra": {
+    "cache_creation_input_token_cost": 1.25e-05,
+    "cache_read_input_token_cost": 1e-06,
+    "input_cost_per_token": 1e-05,
+    "litellm_provider": "openai",
+    "max_input_tokens": 1050000,
+    "max_output_tokens": 128000,
+    "max_tokens": 128000,
+    "mode": "chat",
+    "output_cost_per_token": 5e-05,
+    "supports_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_tool_choice": true,
+    "supports_vision": true
+  },
   "gpt-image-1": {
     "litellm_provider": "openai",
     "max_input_tokens": 0,
@@ -1959,7 +1976,7 @@
   },
   "grok-imagine-image": {
     "litellm_provider": "xai",
-    "max_input_tokens": 8000,
+    "max_input_tokens": 16000,
     "max_output_tokens": 0,
     "max_tokens": 0,
     "mode": "chat",
@@ -1968,7 +1985,7 @@
   },
   "grok-imagine-image-2.0": {
     "litellm_provider": "xai",
-    "max_input_tokens": 8000,
+    "max_input_tokens": 64000,
     "max_output_tokens": 0,
     "max_tokens": 0,
     "mode": "chat",
@@ -1977,7 +1994,7 @@
   },
   "grok-imagine-image-quality": {
     "litellm_provider": "xai",
-    "max_input_tokens": 8000,
+    "max_input_tokens": 16000,
     "max_output_tokens": 0,
     "max_tokens": 0,
     "mode": "chat",
