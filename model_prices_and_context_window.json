@@ -1152,6 +1152,7 @@
     "supports_tool_choice": true
   },
   "glm-4.5v": {
+    "cache_read_input_token_cost": 1.1e-07,
     "input_cost_per_token": 6e-07,
     "litellm_provider": "zhipuai",
     "max_input_tokens": 64000,
@@ -1160,6 +1161,7 @@
     "mode": "chat",
     "output_cost_per_token": 1.8e-06,
     "supports_function_calling": true,
+    "supports_prompt_caching": true,
     "supports_reasoning": true,
     "supports_system_messages": true,
     "supports_tool_choice": true,
@@ -1182,6 +1184,7 @@
     "supports_tool_choice": true
   },
   "glm-4.6v": {
+    "cache_read_input_token_cost": 5e-08,
     "input_cost_per_token": 3e-07,
     "litellm_provider": "zhipuai",
     "max_input_tokens": 128000,
@@ -1190,6 +1193,7 @@
     "mode": "chat",
     "output_cost_per_token": 9e-07,
     "supports_function_calling": true,
+    "supports_prompt_caching": true,
     "supports_reasoning": true,
     "supports_system_messages": true,
     "supports_tool_choice": true,
