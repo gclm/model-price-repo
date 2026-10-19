@@ -108,6 +108,21 @@
     "supports_tool_choice": true,
     "supports_vision": true
   },
+  "MiniMax-M3.1-Flash": {
+    "cache_read_input_token_cost": 1.5e-08,
+    "input_cost_per_token": 1.5e-07,
+    "litellm_provider": "minimax",
+    "max_input_tokens": 1000000,
+    "max_output_tokens": 512000,
+    "max_tokens": 512000,
+    "mode": "chat",
+    "output_cost_per_token": 6e-07,
+    "supports_function_calling": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_tool_choice": true,
+    "supports_vision": true
+  },
   "chatgpt-image-latest": {
     "litellm_provider": "openai",
     "max_input_tokens": 0,
@@ -2578,6 +2593,21 @@
     "supports_prompt_caching": true,
     "supports_reasoning": true,
     "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_vision": true
+  },
+  "minimax/MiniMax-M3.1-Flash": {
+    "cache_read_input_token_cost": 1.5e-08,
+    "input_cost_per_token": 1.5e-07,
+    "litellm_provider": "minimax",
+    "max_input_tokens": 1000000,
+    "max_output_tokens": 512000,
+    "max_tokens": 512000,
+    "mode": "chat",
+    "output_cost_per_token": 6e-07,
+    "supports_function_calling": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
     "supports_tool_choice": true,
     "supports_vision": true
   },
