@@ -97,8 +97,8 @@
     "input_cost_per_token": 3e-07,
     "litellm_provider": "minimax",
     "max_input_tokens": 1000000,
-    "max_output_tokens": 512000,
-    "max_tokens": 512000,
+    "max_output_tokens": 524288,
+    "max_tokens": 524288,
     "mode": "chat",
     "output_cost_per_token": 1.2e-06,
     "supports_function_calling": true,
@@ -113,13 +113,14 @@
     "input_cost_per_token": 1.5e-07,
     "litellm_provider": "minimax",
     "max_input_tokens": 1000000,
-    "max_output_tokens": 512000,
-    "max_tokens": 512000,
+    "max_output_tokens": 524288,
+    "max_tokens": 524288,
     "mode": "chat",
     "output_cost_per_token": 6e-07,
     "supports_function_calling": true,
     "supports_prompt_caching": true,
     "supports_reasoning": true,
+    "supports_system_messages": true,
     "supports_tool_choice": true,
     "supports_vision": true
   },
@@ -518,7 +519,7 @@
     "cache_read_input_token_cost": 3e-09,
     "input_cost_per_token": 1.5e-07,
     "litellm_provider": "deepseek",
-    "max_input_tokens": 1000000,
+    "max_input_tokens": 1048576,
     "max_output_tokens": 393216,
     "max_tokens": 393216,
     "mode": "chat",
@@ -534,7 +535,7 @@
     "cache_read_input_token_cost": 3e-09,
     "input_cost_per_token": 1.5e-07,
     "litellm_provider": "deepseek",
-    "max_input_tokens": 1000000,
+    "max_input_tokens": 1048576,
     "max_output_tokens": 393216,
     "max_tokens": 393216,
     "mode": "chat",
@@ -547,14 +548,14 @@
     "supports_vision": true
   },
   "deepseek-v4-flash-0731": {
-    "cache_read_input_token_cost": 4e-08,
-    "input_cost_per_token": 2e-07,
+    "cache_read_input_token_cost": 8.8e-08,
+    "input_cost_per_token": 4.4e-07,
     "litellm_provider": "alibaba",
     "max_input_tokens": 1000000,
     "max_output_tokens": 384000,
     "max_tokens": 384000,
     "mode": "chat",
-    "output_cost_per_token": 4e-07,
+    "output_cost_per_token": 1.32e-06,
     "supports_function_calling": true,
     "supports_prompt_caching": true,
     "supports_reasoning": true,
@@ -565,7 +566,7 @@
     "cache_read_input_token_cost": 3e-09,
     "input_cost_per_token": 1.5e-07,
     "litellm_provider": "deepseek",
-    "max_input_tokens": 1000000,
+    "max_input_tokens": 1048576,
     "max_output_tokens": 393216,
     "max_tokens": 393216,
     "mode": "chat",
@@ -581,7 +582,7 @@
     "cache_read_input_token_cost": 2.2e-08,
     "input_cost_per_token": 6.6e-07,
     "litellm_provider": "deepseek",
-    "max_input_tokens": 1000000,
+    "max_input_tokens": 1048576,
     "max_output_tokens": 393216,
     "max_tokens": 393216,
     "mode": "chat",
@@ -1167,6 +1168,7 @@
     "supports_tool_choice": true
   },
   "glm-4.5v": {
+    "cache_creation_input_token_cost": 0.0,
     "cache_read_input_token_cost": 1.1e-07,
     "input_cost_per_token": 6e-07,
     "litellm_provider": "zhipuai",
@@ -1199,6 +1201,7 @@
     "supports_tool_choice": true
   },
   "glm-4.6v": {
+    "cache_creation_input_token_cost": 0.0,
     "cache_read_input_token_cost": 5e-08,
     "input_cost_per_token": 3e-07,
     "litellm_provider": "zhipuai",
@@ -2195,14 +2198,6 @@
     "mode": "chat",
     "supports_vision": true
   },
-  "grok-imagine-image-2.0": {
-    "litellm_provider": "xai",
-    "max_input_tokens": 64000,
-    "max_output_tokens": 0,
-    "max_tokens": 0,
-    "mode": "chat",
-    "supports_vision": true
-  },
   "grok-imagine-image-quality": {
     "litellm_provider": "xai",
     "max_input_tokens": 16000,
@@ -2235,30 +2230,6 @@
     "mode": "chat",
     "supports_vision": true
   },
-  "grok-tts": {
-    "litellm_provider": "xai",
-    "max_input_tokens": 15000,
-    "max_output_tokens": 15000,
-    "max_tokens": 15000,
-    "mode": "chat"
-  },
-  "grok-voice-3.0": {
-    "litellm_provider": "xai",
-    "max_input_tokens": 0,
-    "max_output_tokens": 0,
-    "max_tokens": 0,
-    "mode": "chat",
-    "supports_function_calling": true,
-    "supports_reasoning": true,
-    "supports_tool_choice": true
-  },
-  "grok-voice-transcribe-2.0": {
-    "litellm_provider": "xai",
-    "max_input_tokens": 0,
-    "max_output_tokens": 0,
-    "max_tokens": 0,
-    "mode": "chat"
-  },
   "kimi-k2.6": {
     "cache_read_input_token_cost": 1.6e-07,
     "input_cost_per_token": 9.5e-07,
@@ -2271,7 +2242,6 @@
     "supports_function_calling": true,
     "supports_prompt_caching": true,
     "supports_reasoning": true,
-    "supports_system_messages": true,
     "supports_tool_choice": true,
     "supports_vision": true
   },
@@ -2582,8 +2552,8 @@
     "input_cost_per_token": 3e-07,
     "litellm_provider": "minimax",
     "max_input_tokens": 1000000,
-    "max_output_tokens": 512000,
-    "max_tokens": 512000,
+    "max_output_tokens": 524288,
+    "max_tokens": 524288,
     "mode": "chat",
     "output_cost_per_token": 1.2e-06,
     "supports_function_calling": true,
@@ -2598,13 +2568,14 @@
     "input_cost_per_token": 1.5e-07,
     "litellm_provider": "minimax",
     "max_input_tokens": 1000000,
-    "max_output_tokens": 512000,
-    "max_tokens": 512000,
+    "max_output_tokens": 524288,
+    "max_tokens": 524288,
     "mode": "chat",
     "output_cost_per_token": 6e-07,
     "supports_function_calling": true,
     "supports_prompt_caching": true,
     "supports_reasoning": true,
+    "supports_system_messages": true,
     "supports_tool_choice": true,
     "supports_vision": true
   },
@@ -2801,9 +2772,7 @@
     "max_tokens": 512,
     "mode": "chat",
     "output_cost_per_token": 1.4e-06,
-    "supports_function_calling": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true
+    "supports_system_messages": true
   },
   "qwen-turbo": {
     "input_cost_per_token": 5e-08,
@@ -3270,13 +3239,13 @@
     "supports_vision": true
   },
   "qwen3.6-35b-a3b": {
-    "input_cost_per_token": 2.48e-07,
+    "input_cost_per_token": 3.75e-07,
     "litellm_provider": "alibaba",
     "max_input_tokens": 262144,
     "max_output_tokens": 65536,
     "max_tokens": 65536,
     "mode": "chat",
-    "output_cost_per_token": 1.485e-06,
+    "output_cost_per_token": 2.25e-06,
     "supports_function_calling": true,
     "supports_reasoning": true,
     "supports_system_messages": true,
@@ -3284,15 +3253,17 @@
     "supports_vision": true
   },
   "qwen3.6-flash": {
-    "cache_creation_input_token_cost": 2.34375e-07,
-    "input_cost_per_token": 1.875e-07,
+    "cache_creation_input_token_cost": 3.125e-07,
+    "cache_read_input_token_cost": 2.5e-08,
+    "input_cost_per_token": 2.5e-07,
     "litellm_provider": "alibaba",
     "max_input_tokens": 1000000,
     "max_output_tokens": 65536,
     "max_tokens": 65536,
     "mode": "chat",
-    "output_cost_per_token": 1.125e-06,
+    "output_cost_per_token": 1.5e-06,
     "supports_function_calling": true,
+    "supports_prompt_caching": true,
     "supports_reasoning": true,
     "supports_system_messages": true,
     "supports_tool_choice": true,
