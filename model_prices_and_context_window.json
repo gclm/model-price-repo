@@ -634,7 +634,6 @@
     "mode": "chat",
     "output_cost_per_token": 3e-05,
     "supports_prompt_caching": true,
-    "supports_reasoning": true,
     "supports_system_messages": true,
     "supports_vision": true
   },
