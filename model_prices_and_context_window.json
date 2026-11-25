@@ -2582,6 +2582,7 @@
     "supports_tool_choice": true
   },
   "qwen-max": {
+    "cache_read_input_token_cost": 3.2e-07,
     "input_cost_per_token": 1.6e-06,
     "litellm_provider": "alibaba",
     "max_input_tokens": 32768,
@@ -2590,6 +2591,7 @@
     "mode": "chat",
     "output_cost_per_token": 6.4e-06,
     "supports_function_calling": true,
+    "supports_prompt_caching": true,
     "supports_system_messages": true,
     "supports_tool_choice": true
   },
@@ -2620,6 +2622,7 @@
     "supports_tool_choice": true
   },
   "qwen-plus-character-ja": {
+    "cache_read_input_token_cost": 1e-07,
     "input_cost_per_token": 5e-07,
     "litellm_provider": "alibaba",
     "max_input_tokens": 8192,
@@ -2627,6 +2630,7 @@
     "max_tokens": 512,
     "mode": "chat",
     "output_cost_per_token": 1.4e-06,
+    "supports_prompt_caching": true,
     "supports_system_messages": true
   },
   "qwen-vl-ocr": {
